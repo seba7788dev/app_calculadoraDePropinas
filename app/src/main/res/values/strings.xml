@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tips Calculator</string>
+    <string name="calcular_propina">Calcular propina</string>
+    <string name="resultado_de_propina">Resultado de propina: %s</string>
+    <string name="redondear_propina">Redondear propina?</string>
+    <string name="no_fue_buena">No fue buena (5%)</string>
+    <string name="buena_10">Buena (10%)</string>
+    <string name="excelente_20">Excelente (20%)</string>
+    <string name="como_estuvo_el_servicio">Como estuvo el servicio?</string>
+    <string name="costo_del_servicio_hint">Costo del servicio</string>
 </resources>

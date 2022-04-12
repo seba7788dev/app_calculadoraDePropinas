@@ -4,96 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:padding="16dp"
-    >
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/costo_del_servicio_hint"
         android:inputType="numberDecimal"
-        android:hint="Costo del servicio"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/consulta_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Como estuvo el servicio?"
+        android:text="@string/como_estuvo_el_servicio"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/cost_of_service"
 
         />
 
     <RadioGroup
         android:id="@+id/tips_opciones"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checkedButton="@id/opcion_veinte_porc"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/consulta_usuario"
-        android:checkedButton="@id/opcion_veinte_porc">
+        app:layout_constraintTop_toBottomOf="@id/consulta_usuario">
 
         <RadioButton
             android:id="@+id/opcion_veinte_porc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Excelente (20%)">
+            android:text="@string/excelente_20">
 
         </RadioButton>
+
         <RadioButton
             android:id="@+id/opcion_diez_porc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buena (10%)">
+            android:text="@string/buena_10">
 
         </RadioButton>
+
         <RadioButton
             android:id="@+id/opcion_cinco_porc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No fue buena (5%)">
+            android:text="@string/no_fue_buena">
 
         </RadioButton>
     </RadioGroup>
 
     <Switch
         android:id="@+id/opcion_redondear"
-        android:text="Redondear propina?"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tips_opciones"
         android:checked="true"
-        >
+        android:text="@string/redondear_propina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tips_opciones">
 
 
     </Switch>
+
     <Button
         android:id="@+id/boton_calcular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/calcular_propina"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/opcion_redondear"
-        android:text="Calcular propina"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/opcion_redondear">
 
     </Button>
+
     <TextView
         android:id="@+id/resultado_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Resultado de propina"
-        app:layout_constraintTop_toBottomOf="@id/boton_calcular"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boton_calcular"
+        tools:text="Cantidad propina"
 
         ></TextView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
