@@ -1,7 +1,11 @@
 package com.example.myapplication
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.myapplication.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
@@ -16,12 +20,14 @@ class MainActivity : AppCompatActivity() {
         binding.botonCalcular.setOnClickListener {
             calcularTip()
         }
+        //llamo a la funcion para ocultar teclado
+        binding.costOfServiceEditText.setOnKeyListener{view,keyCode, _->handleKeyEvent(view,keyCode)}
     }
 
     private fun calcularTip(){
 
         // Guardo la informacion que ingresa el usuario del costo del servicio
-        val infoCostoServicio=binding.costOfService.text.toString()
+        val infoCostoServicio=binding.costOfServiceEditText.text.toString()
         val costo=infoCostoServicio.toDoubleOrNull()
         //evito error en caso de que el usuario ingrese un null
         if (costo==null){
@@ -64,4 +70,22 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    // funcion para esconder el teclado cada vez q se oprime la tecla enter
+
+    private fun handleKeyEvent(view:View,keyCode:Int):Boolean{
+            if (keyCode== KeyEvent.KEYCODE_ENTER){
+                //Escondo el teclado
+                val inputMethodManager=
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+                return true
+
+            }
+        return false
+    }
+
+
+
+
 }
